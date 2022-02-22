@@ -1,8 +1,19 @@
 import React from 'react'
 
 const form = (props) => {
+
+    const handleChange = evt => {
+        const { name, value } = evt.target
+        props.change(name, value)
+    }
+
+    const handleSubmit = evt => {
+        evt.preventDefault()
+        props.submit()
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>Name
                 <input
                     placeholder='Enter your name here!'
